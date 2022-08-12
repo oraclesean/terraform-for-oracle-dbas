@@ -1,0 +1,11 @@
+tenancy_ocid        = "ocid1.tenancy.oc1.."
+user_ocid           = "ocid1.user.oc1.."
+private_key_path    = "my-key.pem"
+fingerprint         = "00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"
+region              = "us-phoenix-1"
+#compartment_ocid    = "ocid1.tenancy.oc1.."
+
+# Autonomous database variable values
+db_name        = "ADB21C"
+display_name   = "ADB21C"
+admin_password = "Super!!Strong135PW"
