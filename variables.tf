@@ -11,7 +11,7 @@ variable "admin_password"           { type = string }
 
 variable "db_version" {
   type = string
-  default = "21c"     # Options are 19c, 21c
+  default = "19c"     # Option is 19c
 }
 
 variable "db_workload" {
