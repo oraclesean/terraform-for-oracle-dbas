@@ -6,6 +6,6 @@ region              = "us-phoenix-1"
 #compartment_ocid    = "ocid1.tenancy.oc1.."
 
 # Autonomous database variable values
-db_name        = "ADB21C"
-display_name   = "ADB21C"
+db_name        = "ADB19C"
+display_name   = "ADB19C"
 admin_password = "Super!!Strong135PW"
