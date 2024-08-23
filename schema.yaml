@@ -1,0 +1,154 @@
+title: "Terraform for Oracle Database Administrators"
+description: "Terraform for Oracle Database Administrators"
+stackDescription: "Terraform for Oracle Database Administrators"
+schemaVersion: 1.1.0
+version: "20240822"
+locale: "en"
+
+source:
+  type: quickstart
+
+variableGroups:
+  - title: "General Configuration"
+    visible: false
+    variables:
+    - ${tenancy_ocid}
+    - ${region}
+    - ${user_ocid}
+    - ${fingerprint}
+    - ${private_key_path}
+
+  - title: "Required Configuration"
+    visible: true
+    variables:
+    - ${db_name}
+    - ${display_name}
+    - ${admin_password}
+    - ${show_advanced}
+
+  - title: "Optional ADB Configuration"
+    visible:
+      and: show_advanced
+    variables:
+    - ${db_version}
+    - ${db_workload}
+    - ${is_free_tier}
+    - ${license_model}
+    - ${character_set}
+    - ${ncharacter_set}
+
+outputGroups:
+  - title: Database Name
+    outputs:
+    - db_name
+  - title: Database State
+    outputs:
+    - db_state
+  - title: Database Connection URLs
+    outputs:
+    - connection_urls
+  - title: Autonomous Database Wallet Password
+    outputs:
+    - adb_wallet_password
+
+outputs:
+  db_name:
+    type: string
+    title: "Database Name"
+    description: "Database Name"
+    visible: true
+  db_state:
+    title: "Database State"
+    description: "Database State"
+    type: string
+    visible: true
+  connection_urls:
+    title: "Database Connection URLs"
+    description: "URLs for database connections"
+    type: list(string)
+    visible: true
+  adb_wallet_password:
+    title: "ADB Database Wallet Password"
+    description: "ADB Database Wallet Password"
+    type: string
+    sensitive: true
+
+variables:
+  show_advanced:
+    type: boolean
+    title: "Show advanced options?"
+    description: "Shows advanced options."
+    visible: true
+    default: false
+
+  db_name:
+    type: string
+    title: "Database Name"
+    description: "Select an ADB name."
+    required: true
+
+  display_name:
+    type: string
+    title: "Database Display Name"
+    description: "Select an ADB display name."
+    required: false
+
+  admin_password:
+    type: password
+    required: true
+    visibile: true
+    title: "Database Admin Password."
+    description: "The admin password must start with a letter, and can contain a mix of uppercase and lowercase letters, numbers, and the symbols _ $ #. The $ symbol cannot be the last character."
+    minLength: 12
+    maxLength: 30
+    pattern: ^[A-Za-z][A-Za-z0-9_#\$]+[A-Za-z0-9_#]$ 
+
+  db_version:
+    type: enum
+    required: false
+    default: "19c"
+    title: "Database Version"
+    description: "Choose the database version."
+    enum:
+      - "19c"
+
+  is_free_tier:
+    type: boolean
+    title: "Use Free Tier Only"
+    description: "Configure resources using Always Free Tier resources."
+    visible: true
+    default: true
+
+  db_workload:
+    type: enum
+    required: false
+    default: "OLTP"
+    title: "Database Workload"
+    description: "Choose the database workload type."
+    enum:
+      - "OLTP"
+      - "DW"
+      - "AJD"
+      - "APEX"
+
+  license_model:
+    type: enum
+    required: false
+    visible: true
+    title: "Database License Model"
+    description: "Choose the licensing model."
+    default: "LICENSE_INCLUDED"
+    enum:
+      - "LICENSE_INCLUDED"
+      - "BRING_YOUR_OWN_LICENSE"
+
+  character_set:
+    type: enum
+    required: false
+    default: "AL32UTF8"
+    title: "Database Character Set"
+    description: "Choose the database character set."
+    enum:
+      - "AL32UTF8"
+      - "US7ASCII"
+      - "UTF8"
