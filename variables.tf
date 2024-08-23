@@ -11,7 +11,7 @@ variable "admin_password"           { type = string }
 
 variable "db_version" {
   type = string
-  default = "21c"     # Options are 19c, 21c
+  default = "19c"     # Options are 19c, 21c
 }
 
 variable "db_workload" {
@@ -27,6 +27,11 @@ variable "cpu_core_count" {
 variable "data_storage_size_in_tbs" {
   type = string
   default = 1
+}
+
+variable "character_set" {
+  type = string
+  default = "AL32UTF8"
 }
 
 variable "is_free_tier" {
