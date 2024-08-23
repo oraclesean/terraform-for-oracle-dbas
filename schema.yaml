@@ -17,6 +17,8 @@ variableGroups:
     - user_ocid
     - fingerprint
     - private_key_path
+    - cpu_core_count
+    - data_storage_size_in_tbs
 
   - title: "Required Configuration"
     visible: true
@@ -35,6 +37,7 @@ variableGroups:
     - is_free_tier
     - license_model
     - character_set
+    - ncharacter_set
 
 outputGroups:
   - title: Database Name
@@ -56,16 +59,19 @@ outputs:
     title: "Database Name"
     description: "Database Name"
     visible: true
+
   db_state:
     title: "Database State"
     description: "Database State"
     type: string
     visible: true
+
   connection_urls:
     title: "Database Connection URLs"
     description: "URLs for database connections"
     type: list(string)
     visible: true
+
   adb_wallet_password:
     title: "ADB Database Wallet Password"
     description: "ADB Database Wallet Password"
@@ -151,3 +157,23 @@ variables:
       - "AL32UTF8"
       - "US7ASCII"
       - "UTF8"
+
+  cpu_core_count:
+    type: number
+    required: false
+    minimum: 1
+    maximum: 128
+    multipleOf: 1
+    default: 1
+    title: "ADB Database CPU count"
+    description: "Select the number of CPUs."
+
+  database_data_storage_size_in_tbs:
+    type: number
+    required: false
+    minimum: 1
+    maximum: 128
+    multipleOf: 1
+    default: 1
+    title: "ADB Database Data Storage Size in TB"
+    description: "Choose the database storage allocation in TB."
