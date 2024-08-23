@@ -12,29 +12,29 @@ variableGroups:
   - title: "General Configuration"
     visible: false
     variables:
-    - ${tenancy_ocid}
-    - ${region}
-    - ${user_ocid}
-    - ${fingerprint}
-    - ${private_key_path}
+    - tenancy_ocid
+    - region
+    - user_ocid
+    - fingerprint
+    - private_key_path
 
   - title: "Required Configuration"
     visible: true
     variables:
-    - ${db_name}
-    - ${display_name}
-    - ${admin_password}
-    - ${show_advanced}
+    - db_name
+    - display_name
+    - admin_password
+    - show_advanced
 
   - title: "Optional ADB Configuration"
     visible:
       and: show_advanced
     variables:
-    - ${db_version}
-    - ${db_workload}
-    - ${is_free_tier}
-    - ${license_model}
-    - ${character_set}
+    - db_version
+    - db_workload
+    - is_free_tier
+    - license_model
+    - character_set
 
 outputGroups:
   - title: Database Name
