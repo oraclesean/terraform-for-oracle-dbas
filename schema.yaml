@@ -2,11 +2,8 @@ title: "Terraform for Oracle Database Administrators"
 description: "Terraform for Oracle Database Administrators"
 stackDescription: "Terraform for Oracle Database Administrators"
 schemaVersion: 1.1.0
-version: "20240822"
+version: "20190404"
 locale: "en"
-
-source:
-  type: quickstart
 
 variableGroups:
   - title: "General Configuration"
