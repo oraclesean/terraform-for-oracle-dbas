@@ -1,27 +1,16 @@
 variable "tenancy_ocid" {}
 variable "region" {}
-
-variable "user_ocid" {
-  default = ""
-}
-
-variable "fingerprint" {
-  default = ""
-}
-
-variable "private_key_path" {
-  default = ""
-}
+variable "user_ocid" {}
+variable "fingerprint" {}
+variable "private_key_path" {}
 
 # Autonomous DB variables
 variable "db_name" {
   type = string
-  default = "ORCL"
  }
 
 variable "display_name" {
   type = string
-  default = "ORCL"
  }
 
 variable "admin_password"           { type = string }
