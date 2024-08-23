@@ -62,11 +62,11 @@ outputs:
     type: string
     visible: true
 
-  connection_urls:
-    title: "Database Connection URLs"
-    description: "URLs for database connections"
-    type: list(string)
-    visible: true
+#  connection_urls:
+#    title: "Database Connection URLs"
+#    description: "URLs for database connections"
+#    type: list(string)
+#    visible: true
 
   adb_wallet_password:
     title: "ADB Database Wallet Password"
@@ -173,3 +173,15 @@ variables:
     default: 1
     title: "ADB Database Data Storage Size in TB"
     description: "Choose the database storage allocation in TB."
+
+  tenancy_ocid:
+    type: string
+    title: Tenancy ID
+    description: The Oracle Cloud Identifier (OCID) for your tenancy
+    required: true
+
+  region:
+    type: oci:identity:region:name
+    title: Region
+    description: The region in which to create all resources
+    required: true
