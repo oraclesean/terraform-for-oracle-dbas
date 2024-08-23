@@ -35,7 +35,6 @@ variableGroups:
     - ${is_free_tier}
     - ${license_model}
     - ${character_set}
-    - ${ncharacter_set}
 
 outputGroups:
   - title: Database Name
