@@ -11,6 +11,6 @@ resource "oci_database_autonomous_database_wallet" "adb_wallet" {
 }
 
 resource "local_file" "adb_wallet_file" {
-  content                = oci_database_autonomous_database_wallet.adb_wallet.content
+  content_base64         = oci_database_autonomous_database_wallet.adb_wallet.content
   filename               = "${path.module}/adb_wallet.zip"
 }
